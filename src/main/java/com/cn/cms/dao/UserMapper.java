@@ -10,7 +10,7 @@ import com.cn.cms.dto.UserInfo;
  * @author Auto Generator
  * @since 2018-07-16
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper {
 
     UserInfo findUserInfo(String userName);
 
