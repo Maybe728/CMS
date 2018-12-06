@@ -1,6 +1,6 @@
 package com.cn.cms.dto;
 
-import com.cn.hsx.tyqxcms.entity.User;
+import com.cn.cms.entity.User;
 
 import java.io.Serializable;
 

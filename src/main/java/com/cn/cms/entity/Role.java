@@ -1,9 +1,15 @@
-package com.cn.cms.model;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+package com.cn.cms.entity;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -11,19 +17,22 @@ import java.util.Date;
  * </p>
  *
  * @author Auto Generator
- * @since 2018-07-16
+ * @since 2018-12-06
  */
-public class Role implements Serializable {
+@TableName("sys_role")
+public class Role extends Model<Role> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键ID
      */
+	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
     /**
      * 权限ID列表
      */
+	@TableField("permission_ids")
 	private String permissionIds;
     /**
      * 是否可用
@@ -32,20 +41,22 @@ public class Role implements Serializable {
     /**
      * 角色名称
      */
+	@TableField("role_name")
 	private String roleName;
     /**
      * 角色编号
      */
+	@TableField("role_code")
 	private String roleCode;
     /**
      * 修改时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
 	private Date updateTime;
     /**
      * 创建时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	private Date createTime;
 
 
@@ -106,9 +117,14 @@ public class Role implements Serializable {
 	}
 
 	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
 	public String toString() {
 		return "Role{" +
-			", id=" + id +
+			"id=" + id +
 			", permissionIds=" + permissionIds +
 			", available=" + available +
 			", roleName=" + roleName +

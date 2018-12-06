@@ -1,10 +1,15 @@
-package com.cn.cms.model;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.cn.cms.entity;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -12,19 +17,22 @@ import java.util.Date;
  * </p>
  *
  * @author Auto Generator
- * @since 2018-07-16
+ * @since 2018-12-06
  */
-public class User  implements  Serializable{
+@TableName("sys_user")
+public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键ID
      */
+	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
     /**
      * 角色ID
      */
+	@TableField("role_id")
 	private Integer roleId;
     /**
      * 名称
@@ -33,16 +41,16 @@ public class User  implements  Serializable{
     /**
      * 用户名
      */
+	@TableField("user_name")
 	private String userName;
     /**
      * 密码
      */
-    @JsonIgnore
+	@TableField("pass_word")
 	private String passWord;
     /**
      * 盐值
      */
-	@JsonIgnore
 	private String salt;
     /**
      * 状态(0：禁用，1：启用，2：锁定)
@@ -51,12 +59,12 @@ public class User  implements  Serializable{
     /**
      * 修改时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
 	private Date updateTime;
     /**
      * 创建时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	private Date createTime;
 
 
@@ -133,17 +141,22 @@ public class User  implements  Serializable{
 	}
 
 	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
 	public String toString() {
 		return "User{" +
-				"id=" + id +
-				", roleId=" + roleId +
-				", name='" + name + '\'' +
-				", userName='" + userName + '\'' +
-				", passWord='" + passWord + '\'' +
-				", salt='" + salt + '\'' +
-				", state=" + state +
-				", updateTime=" + updateTime +
-				", createTime=" + createTime +
-				'}';
+			"id=" + id +
+			", roleId=" + roleId +
+			", name=" + name +
+			", userName=" + userName +
+			", passWord=" + passWord +
+			", salt=" + salt +
+			", state=" + state +
+			", updateTime=" + updateTime +
+			", createTime=" + createTime +
+			"}";
 	}
 }

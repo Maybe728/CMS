@@ -1,9 +1,15 @@
-package com.cn.cms.model;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+package com.cn.cms.entity;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -11,15 +17,17 @@ import java.util.Date;
  * </p>
  *
  * @author Auto Generator
- * @since 2018-07-16
+ * @since 2018-12-06
  */
-public class Permission implements Serializable {
+@TableName("sys_permission")
+public class Permission extends Model<Permission> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键ID
      */
+	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
     /**
      * 是否可用
@@ -28,22 +36,27 @@ public class Permission implements Serializable {
     /**
      * 权限名称
      */
+	@TableField("permission_name")
 	private String permissionName;
     /**
      * 父权限ID
      */
+	@TableField("parent_id")
 	private Integer parentId;
     /**
      * 父权限ID列表
      */
+	@TableField("parent_ids")
 	private String parentIds;
     /**
      * 权限编码
      */
+	@TableField("permission_code")
 	private String permissionCode;
     /**
-     * 资源类型(menu/button)
+     * 资源类型(directory/menu/button)
      */
+	@TableField("resource_type")
 	private String resourceType;
     /**
      * 资源路径
@@ -52,12 +65,12 @@ public class Permission implements Serializable {
     /**
      * 修改时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
 	private Date updateTime;
     /**
      * 创建时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	private Date createTime;
 
 
@@ -142,9 +155,14 @@ public class Permission implements Serializable {
 	}
 
 	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
 	public String toString() {
 		return "Permission{" +
-			", id=" + id +
+			"id=" + id +
 			", available=" + available +
 			", permissionName=" + permissionName +
 			", parentId=" + parentId +

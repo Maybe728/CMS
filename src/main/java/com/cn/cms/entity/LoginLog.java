@@ -1,9 +1,15 @@
-package com.cn.cms.model;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+package com.cn.cms.entity;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -11,41 +17,47 @@ import java.util.Date;
  * </p>
  *
  * @author Auto Generator
- * @since 2018-10-01
+ * @since 2018-12-06
  */
-public class LoginLog implements Serializable{
+@TableName("sys_login_log")
+public class LoginLog extends Model<LoginLog> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键ID
      */
+	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
     /**
      * 用户ID
      */
+	@TableField("user_id")
 	private Integer userId;
     /**
      * 用户名
      */
+	@TableField("user_name")
 	private String userName;
     /**
      * IP地址
      */
+	@TableField("ip_address")
 	private String ipAddress;
     /**
      * 地理位置
      */
+	@TableField("geography_location")
 	private String geographyLocation;
     /**
      * 修改时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
 	private Date updateTime;
     /**
      * 创建时间
      */
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	private Date createTime;
 
 
@@ -106,9 +118,14 @@ public class LoginLog implements Serializable{
 	}
 
 	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
 	public String toString() {
 		return "LoginLog{" +
-			", id=" + id +
+			"id=" + id +
 			", userId=" + userId +
 			", userName=" + userName +
 			", ipAddress=" + ipAddress +

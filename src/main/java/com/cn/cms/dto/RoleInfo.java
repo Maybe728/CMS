@@ -1,7 +1,7 @@
 package com.cn.cms.dto;
 
-import com.cn.hsx.tyqxcms.entity.Permission;
-import com.cn.hsx.tyqxcms.entity.Role;
+import com.cn.cms.entity.Permission;
+import com.cn.cms.entity.Role;
 
 import java.io.Serializable;
 import java.util.List;
