@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.Properties;
 
 @SpringBootApplication
-@MapperScan("com.cn.cms.mapper")
+@MapperScan("com.cn.cms.dao")
 public class CmsApplication {
 
     public static void main(String[] args) {

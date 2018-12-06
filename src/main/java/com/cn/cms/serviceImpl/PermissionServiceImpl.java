@@ -6,7 +6,7 @@ import com.cn.cms.dto.PermissionInfo;
 import com.cn.cms.enumtype.ResourceType;
 import com.cn.cms.exception.BusinessException;
 import com.cn.cms.entity.Permission;
-import com.cn.cms.mapper.PermissionMapper;
+import com.cn.cms.dao.PermissionMapper;
 import com.cn.cms.service.IPermissionService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

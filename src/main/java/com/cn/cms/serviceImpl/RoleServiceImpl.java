@@ -2,7 +2,7 @@ package com.cn.cms.serviceImpl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.cn.cms.entity.Role;
-import com.cn.cms.mapper.RoleMapper;
+import com.cn.cms.dao.RoleMapper;
 import com.cn.cms.service.IRoleService;
 import org.springframework.stereotype.Service;
 

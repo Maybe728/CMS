@@ -1,4 +1,4 @@
-package com.cn.cms.mapper;
+package com.cn.cms.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.cn.cms.dto.PermissionInfo;

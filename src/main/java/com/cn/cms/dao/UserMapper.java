@@ -1,9 +1,8 @@
-package com.cn.cms.mapper;
+package com.cn.cms.dao;
 
 import com.cn.cms.dto.UserInfo;
 import com.cn.cms.entity.User;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -13,7 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @author Auto Generator
  * @since 2018-12-06
  */
-@Mapper
 public interface UserMapper extends BaseMapper<User> {
     UserInfo findUserInfo(String userName);
 }

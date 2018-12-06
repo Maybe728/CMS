@@ -2,7 +2,7 @@ package com.cn.cms.serviceImpl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.cn.cms.entity.LoginLog;
-import com.cn.cms.mapper.LoginLogMapper;
+import com.cn.cms.dao.LoginLogMapper;
 import com.cn.cms.service.ILoginLogService;
 import org.springframework.stereotype.Service;
 
