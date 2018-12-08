@@ -24,7 +24,15 @@ layui.use(['form','layer','table','laydate'],function(){
             {field: 'userName', title: '用户名', minWidth:100, align:"center"},
             {field: 'ipAddress', title: 'IP地址', minWidth:100, align:'center'},
             {field: 'geographyLocation', title: '登录地点', minWidth:100, align:'center'},
-            {field: 'createTime', title: '登录时间', minWidth:100, align:'center'}
+            {field: 'createTime', title: '登录时间', minWidth:100, align:'center',
+                templet: function(res) {
+                    console.log(res);
+                    if(res.createTime == null){
+                        return "1900-01-01 00:00:00";
+                    }else{
+                        return res.createTime.substr(0,10)+" "+res.createTime.substr(11,8);
+                    }
+            }}
         ]]
     });
 
