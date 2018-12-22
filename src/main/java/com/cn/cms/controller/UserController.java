@@ -75,11 +75,22 @@ public class UserController extends BaseController{
     @RequiresPermissions("user:add")
     public @ResponseBody
     ResultInfo<Boolean> add(User user){
+        ResultInfo<Boolean> booleanResultInfo = new ResultInfo<>();
+        booleanResultInfo.setData(false);
+        booleanResultInfo.setMsg("添加失败");
         Map<String, String> map = PasswordEncoder.enCodePassWord(user.getUserName(), user.getPassWord());
         user.setSalt(map.get(PasswordEncoder.SALT));
         user.setPassWord(map.get(PasswordEncoder.PASSWORD));
-        boolean b = iUserService.insert(user);
-        return new ResultInfo<>(b);
+        try {
+            boolean b = iUserService.insert(user);
+            if(b) {
+                booleanResultInfo.setData(true);
+                booleanResultInfo.setMsg("添加成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return booleanResultInfo;
     }
 
     @SysLog("批量删除用户操作")
