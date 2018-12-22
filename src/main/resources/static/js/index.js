@@ -86,7 +86,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
                     }
                 }
                 openTitle += '<cite>' + menu[i].title + '</cite>';
-                openTitle += '<i class="layui-icon layui-unselect layui-tab-close" data-id="' + menu[i].layId + '">&#x1006;</i>';
+                openTitle += '<i class="layui-icon layui-unselect  iconfont layui-extend-htmal5icon19" data-id="' + menu[i].layId + '"></i>';
                 element.tabAdd("bodyTab", {
                     title: openTitle,
                     content: "<iframe src='" + menu[i].href + "' data-id='" + menu[i].layId + "'></frame>",
