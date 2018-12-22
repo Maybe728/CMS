@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -81,6 +82,9 @@ public class UserController extends BaseController{
         Map<String, String> map = PasswordEncoder.enCodePassWord(user.getUserName(), user.getPassWord());
         user.setSalt(map.get(PasswordEncoder.SALT));
         user.setPassWord(map.get(PasswordEncoder.PASSWORD));
+        Date date = new Date();
+        user.setCreateTime(date);
+        user.setUpdateTime(date);
         try {
             boolean b = iUserService.insert(user);
             if(b) {
@@ -127,6 +131,9 @@ public class UserController extends BaseController{
             us.setSalt(map.get(PasswordEncoder.SALT));
             us.setPassWord(map.get(PasswordEncoder.PASSWORD));
         }
+        Date date = new Date();
+        us.setCreateTime(date);
+        us.setUpdateTime(date);
         boolean b = iUserService.updateById(us);
         return new ResultInfo<>(b);
     }
