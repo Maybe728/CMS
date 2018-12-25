@@ -97,6 +97,14 @@ public class UserController extends BaseController{
         return booleanResultInfo;
     }
 
+    /**
+     * 为什么select col from test where col=** 比select * from test where col=* 快好几倍？
+     * 首先了解下索引的主键类型（这里我将其分为聚簇索引和非聚簇索引），聚簇索引是根据主键（主键
+     * 不存在的话，以某一列唯一非空的列（如果也不存在，则自定义一个隐式的聚簇索引））定义为聚簇索引
+     * 聚簇索引中叶子节点内存储着该主键代表的行记录所有数据，而非聚簇索引中叶子节点内存储着
+     * @param idArr
+     * @return
+     */
     @SysLog("批量删除用户操作")
     @RequestMapping("/delBatch")
     @RequiresPermissions("user:del")
