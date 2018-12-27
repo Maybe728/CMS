@@ -28,7 +28,7 @@
         
         7.如果老年代执行了Full GC之后发现依然无法进行对象的保存，就会产生OOM异常“OutOfMemoryError”;
         
-   问题：“StackOverflowError”和“OutOfMemoryError”的区别是什么？
+   2.问题：“StackOverflowError”和“OutOfMemoryError”的区别是什么？
     
         StackOverflowError：
         每当java程序启动一个新的线程时，java虚拟机会为他分配一个栈，java栈以帧为单位保持线程运行状态；
@@ -58,6 +58,6 @@
         将会抛出OutOfMemoryError异常对于这种情况的测试，基本的思路是运行时产生大量的类去填满方法区，
         直到溢出。这里需要借助CGLib直接操作字节码运行时，生成了大量的动态类。
         
-        
+   3.     
     
     
