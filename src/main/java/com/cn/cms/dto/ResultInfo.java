@@ -6,6 +6,23 @@ public class ResultInfo<T> implements Serializable {
 
     private static final long serialVersionUID = -2042618546543630713L;
 
+    /**
+     * 错误信息
+     */
+    private String msg;
+    /**
+     * 错误号
+     */
+    private String code = "0";
+    /**
+     * 返回数据
+     */
+    private T data;
+    /**
+     * 总记录数
+     */
+    private int count;
+
     public ResultInfo() {
     }
 
@@ -28,22 +45,6 @@ public class ResultInfo<T> implements Serializable {
         this.msg = msg;
     }
 
-    /**
-     * 错误信息
-     */
-    private String msg;
-    /**
-     * 错误号
-     */
-    private String code = "0";
-    /**
-     * 返回数据
-     */
-    private T data;
-    /**
-     * 总记录数
-     */
-    private int count;
 
     public String getMsg() {
         return msg;
