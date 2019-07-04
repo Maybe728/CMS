@@ -260,12 +260,15 @@ public class StringUtils {
 				sb.append("&apos;");
 				break;
 			default:
-				if (c >= '\u0000' && c <= '\u001F')
+				if (c >= '\u0000' && c <= '\u001F') {
 					break;
-				if (c >= '\uE000' && c <= '\uF8FF')
+				}
+				if (c >= '\uE000' && c <= '\uF8FF') {
 					break;
-				if (c >= '\uFFF0' && c <= '\uFFFF')
+				}
+				if (c >= '\uFFF0' && c <= '\uFFFF') {
 					break;
+				}
 				sb.append(c);
 				break;
 			}
@@ -318,7 +321,7 @@ public class StringUtils {
 	/**
 	 * 转换为字符串
 	 * 
-	 * @param str
+	 * @param bytes
 	 * @return
 	 */
 	public static String toString(byte[] bytes) {

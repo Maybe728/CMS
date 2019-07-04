@@ -75,7 +75,7 @@ layui.define(['layer', 'table'], function (exports) {
                     iconHtml += '<span class="treeTable-empty"></span>';
                 }
                 if (isDir) {
-                    iconHtml += '<i class="layui-icon iconfont layui-extend-zhankai"></i> <i class="layui-icon layui-icon-layer"></i>';
+                    iconHtml += '<i class="layui-icon layui-icon-wenjianjia"></i>';
                 } else {
                     iconHtml += '<i class="layui-icon layui-icon-file"></i>';
                 }

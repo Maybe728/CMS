@@ -28,7 +28,7 @@ public class ShiroRealm extends AuthorizingRealm {
     @Autowired
     private ILoginLogService iloginLogService;
 
-    /*主要是用来进行权限认证的，也就是说验证用户具有哪些权限*/
+    /**主要是用来进行权限认证的，也就是说验证用户具有哪些权限*/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 

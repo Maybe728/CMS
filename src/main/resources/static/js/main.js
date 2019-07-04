@@ -50,9 +50,4 @@ layui.use(['form','element','layer','jquery'],function(){
         $(".userAll span").text(res.data);
     })
 
-    //外部图标
-    $.get(iconUrl,function(data){
-        $(".outIcons span").text(data.split(".icon-").length-1);
-    })
-
 })
