@@ -1,6 +1,7 @@
 package com.cn.cms.controller;
 
 import com.cn.cms.dto.DirectoryInfo;
+import com.cn.cms.dto.ResultInfo;
 import com.cn.cms.dto.RoleInfo;
 import com.cn.cms.dto.UserInfo;
 import com.cn.cms.exception.BusinessException;
