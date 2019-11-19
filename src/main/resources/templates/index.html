@@ -27,11 +27,11 @@
             <ul class="layui-nav mobileTopLevelMenus" mobile>
                 <li class="layui-nav-item" data-menu="contentManagement">
                     <a href="javascript:;"><i class="layui-icon layui-icon-menu-fill"></i><cite style="font-size: 15px;">目录导航</cite></a>
-                    <dl class="layui-nav-child">
-                        <dd th:each="directory : ${directoryList}" th:attr="data-menu=${directory.code}">
-                            <a href="javascript:;"><cite th:text="${directory.name}"></cite></a>
-                        </dd>
-                    </dl>
+<!--                    <dl class="layui-nav-child">-->
+<!--                        <dd th:each="directory : ${directoryList}" th:attr="data-menu=${directory.code}">-->
+<!--                            <a href="javascript:;"><cite th:text="${directory.name}"></cite></a>-->
+<!--                        </dd>-->
+<!--                    </dl>-->
                 </li>
             </ul>
             <ul class="layui-nav topLevelMenus" pc>
@@ -109,7 +109,7 @@
 </div>
 
 <!-- 移动导航 -->
-<div class="site-tree-mobile"><i class="layui-icon">1232132321312</i></div>
+<div class="site-tree-mobile"><i class="layui-icon"></i></div>
 <div class="site-mobile-shade"></div>
 
 <script defer type="text/javascript" src="/static/layui/layui.js"></script>

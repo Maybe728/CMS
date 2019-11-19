@@ -61,7 +61,7 @@ public class HomeController extends BaseController{
         }
         model.addAttribute("directoryList",directoryList);
 
-        return "/index";
+        return "index";
     }
 
     @RequestMapping("/login")
@@ -118,7 +118,7 @@ public class HomeController extends BaseController{
 
         // 此方法不处理登录成功,由shiro进行处理
 
-        return "/login";
+        return "login";
     }
 
 }
