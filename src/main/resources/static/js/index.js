@@ -130,4 +130,29 @@ function addTab(_this) {
     tab.tabAdd(_this);
 }
 
+//每一分钟轮询一遍是否有新的订单
+function showNewOrder(){
+    $.get("/order/getNewOrders", function (res) {
+        if (res.data>0) {
+            layer.open({
+                type: 1
+                ,title:"新订单提醒"
+                , offset: 'rb'
+                , content: '<audio autoplay="autoplay"><source src="../sound/111.mp3" type="audio/ogg" /></audio><div style="padding: 20px 100px;">' + "<b>您有新的订单啦！！！</b>" + '</div>'
+                , btn: '确定'
+                , btnAlign: 'r' //按钮居中
+                , shade: 0 //不显示遮罩
+                , time:5000
+                , skin:"layui-layer-molv"
+                , yes: function () {
+                    layer.closeAll();
+                    //跳转页面
+                }
+            });
+        }
+    })
+}
+
+setInterval("showNewOrder()","10000");
+
 
