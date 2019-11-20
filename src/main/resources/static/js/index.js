@@ -138,11 +138,11 @@ function showNewOrder(){
                 type: 1
                 ,title:"新订单提醒"
                 , offset: 'rb'
-                , content: '<audio autoplay="autoplay"><source src="../sound/111.mp3" type="audio/ogg" /></audio><div style="padding: 20px 100px;">' + "<b>您有新的订单啦！！！</b>" + '</div>'
+                , content: '<audio autoplay="autoplay"><source src="/static/images/tips.mp3" type="audio/ogg" /></audio><div style="padding: 20px 100px;">' + "<b>您有新的订单啦！！！</b>" + '</div>'
                 , btn: '确定'
                 , btnAlign: 'r' //按钮居中
                 , shade: 0 //不显示遮罩
-                , time:5000
+                , time:299000
                 , skin:"layui-layer-molv"
                 , yes: function () {
                     layer.closeAll();
@@ -153,6 +153,6 @@ function showNewOrder(){
     })
 }
 
-setInterval("showNewOrder()","10000");
+setInterval("showNewOrder()","300000");
 
 
